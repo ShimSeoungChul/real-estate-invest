@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface UserMapper {
     int save(User user);
     Optional<User> findByEmail(String email);
+    int update(User user);
 }
