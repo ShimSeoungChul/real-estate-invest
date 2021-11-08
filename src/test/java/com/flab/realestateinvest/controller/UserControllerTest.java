@@ -54,7 +54,7 @@ class UserControllerTest {
     @Test
     public void login() throws Exception{
         String email = "abcd@naver.com";
-        String encodedPassword = "b943a93742723379c27cc72610fcb3dc9b235d1cf7f65848c5c4514e6377c80311133512aedc4f5d5818a719d6f0f24546a0007c33ccee4db8041177eeda6c4c";
+        String encodedPassword = "$2a$10$zAsi1kwbIM02D81X1SdBsOIFhMBR559TtH.4FMMqz4Z0ztwrYxiLi";
         String sessionId = "1";
 
         User user = User.builder()

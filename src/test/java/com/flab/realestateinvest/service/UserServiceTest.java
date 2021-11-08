@@ -9,6 +9,7 @@ import com.flab.realestateinvest.exception.PasswordWrongException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.*;
@@ -96,9 +97,9 @@ class UserServiceTest {
     @Test
     public void getEncodedPassword() throws NoSuchAlgorithmException {
         String password = "123456789aA!";
-        String encodedPassword = userService.getEncodedPassword(password);
-        assertThat(encodedPassword)
-                .isEqualTo("b943a93742723379c27cc72610fcb3dc9b235d1cf7f65848c5c4514e6377c80311133512aedc4f5d5818a719d6f0f24546a0007c33ccee4db8041177eeda6c4c");
+        String encodedPassword = userService.getEncryptedPassword(password);
+        assertThat(BCrypt.checkpw(password, encodedPassword))
+                .isEqualTo(true);
     }
 
 }
