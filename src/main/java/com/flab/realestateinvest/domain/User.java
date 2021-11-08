@@ -1,16 +1,25 @@
 package com.flab.realestateinvest.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 @Builder
 @Getter
 @Setter
+@AllArgsConstructor
 public class User {
-    int id;
-    String email;
-    String password;
-    String sessionId;
+    private int id;
+    private String email;
+    private String password;
+    private String sessionId;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", sessionId='" + sessionId + '\'' +
+                '}';
+    }
 }
